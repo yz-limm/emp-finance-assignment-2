@@ -1,0 +1,20 @@
+Q3 Part 4 -- Interaction-model audit
+====================================================
+Model choice: FF3 + Mkt_RF*SMB + Mkt_RF*HML
+Motivation: allow size and value exposures to vary with market conditions.
+These are conditional co-movement terms, not tradable risk factors.
+Selection criterion: pooled held-out RMSE reduction >= 2% AND
+  improvement for at least 3 of 5 prespecified test portfolios.
+Train: 194701-199912; test: 200001-202609.
+Pooled FF3 RMSE (pct monthly) = 2.507667
+Pooled interaction RMSE (pct monthly) = 2.517678
+Pooled RMSE improvement = -0.399%
+Improved portfolios = 1/5
+Decision: Keep FF3
+CAVEAT 1: Test period was already inspected in Q3 Part 3; not pristine.
+CAVEAT 2: Current realized factor returns enter the fitted return.
+  This measures held-out factor-conditioned fit, not ex-ante forecast skill.
+CAVEAT 3: Two extra regressors tested across five portfolios. Do not
+  select a winner after seeing these results or tune the test threshold.
+CAVEAT 4: Full-sample p-values are descriptive and not model-selection
+  evidence. Multiple testing and overlapping market regimes can mislead.
